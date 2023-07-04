@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+}
+ul{
+    list-style-type: none;
+    background-color: rgb(18, 18, 135);
+}
+li{
+    display: inline-block;
+    padding: 10px;
+    background-color: navy;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+h1{
+    background-color: green;
+    color: white;
+    text-align: center;
+}
+button{
+    background-color: green;
+    color: aliceblue;
+}

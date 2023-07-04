@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'index.html' %}
+
+{% block title %}
     <title>Mysite | Profile</title>
-</head>
-<body>
-    <ul>
-        <li><a href="index">Home</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/gallery/">Gallery</a></li>
-        <li><a href="/profile/">Profile</a></li>
-        <li><a href="/contact/">Contact</a></li>
-    </ul>
+{% endblock %}
+
+{% block body %}
     <h1>This is Profile Page</h1>
     <table border="2px" cellpadding="10px">
         <tr>
@@ -33,5 +24,4 @@
         </tr>
         {% endfor%}
     </table>
-</body>
-</html>
+{% endblock %}

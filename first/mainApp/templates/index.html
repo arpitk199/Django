@@ -1,10 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block title %}
     <title>Mysite | Home</title>
+    {% endblock %}
 </head>
 <body>
     <ul>
@@ -14,6 +18,49 @@
         <li><a href="/profile/">Profile</a></li>
         <li><a href="/contact/">Contact</a></li>
     </ul>
+    {% block body %}
     <h1>This is Home Page</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>Message</label>
+        <br>
+        <textarea name="message" id="" cols="60" rows="5" placeholder="Enter a Message here....."></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if show %}
+    <table border="2px" cellpadding="10px">
+        <tr>
+            <th>Lover Case Vowel</th>
+            <td>{{lv}}</td>
+        </tr>
+        <tr>
+            <th>Lover Case Consonent</th>
+            <td>{{lc}}</td>
+        </tr>
+        <tr>
+            <th>Upper Case Vowel</th>
+            <td>{{uv}}</td>
+        </tr>
+        <tr>
+            <th>Upper Case Consonent</th>
+            <td>{{uc}}</td>
+        </tr>
+        <tr>
+            <th>Digite</th>
+            <td>{{d}}</td>
+        </tr>
+        <tr>
+            <th>Space</th>
+            <td>{{s}}</td>
+        </tr>
+        <tr>
+            <th>Spacial Charector</th>
+            <td>{{sp}}</td>
+        </tr>
+    </table>
+    {% endif %}
+    {% endblock %}
 </body>
 </html>
