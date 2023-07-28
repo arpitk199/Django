@@ -1,0 +1,6 @@
+.mid-section{
+    /* background-color: red; */
+    height: 4800px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
