@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mainApp import views as mainApp
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,6 @@ urlpatterns = [
     path('confirmation/', mainApp.confirmationPage,name="confirmation"),
     path('contact/', mainApp.contactPage,name="contact"),
     path('login/', mainApp.loginPage,name="login"),
-    path('shop/', mainApp.shopPage,name="shop"),
-    path('single-product/', mainApp.singleProductPage,name="single-product"),
-]
+    path('shop/<str:mc>/<str:sc>/<str:br>/', mainApp.shopPage,name="shop"),
+    path('single-product/<int:id>/', mainApp.singleProductPage,name="single-product"),
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
