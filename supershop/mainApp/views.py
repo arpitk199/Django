@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.messages import success,error
 from .models import *
 
 # Create your views here.
@@ -21,9 +22,6 @@ def confirmationPage(Request):
 
 def contactPage(Request):
     return render(Request,"contact.html")
-
-def loginPage(Request):
-    return render(Request,"login.html")
 
 def shopPage(Request,mc,sc,br):
     if(mc=="All" and sc=="All" and br=="All"):
@@ -52,3 +50,19 @@ def shopPage(Request,mc,sc,br):
 def singleProductPage(Request,id):
     product = Product.objects.get(id=id)
     return render(Request,"single-product.html",{'product':product})
+
+def loginPage(Request):
+    return render(Request,"login.html")
+
+def signupPage(Request):
+    if(Request.method=="POST"):
+        password = Request.POST.get("password")
+        cpassword = Request.POST.get("cpassword")
+        if(password==cpassword):
+            name = Request.POST.get("name")
+            username = Request.POST.get("username")
+            email = Request.POST.get("email")
+            phone = Request.POST.get("phone")
+        else:
+            error(Request,"Password and Confirm Password Doesn't Matched!!!")
+    return render(Request,"signup.html")

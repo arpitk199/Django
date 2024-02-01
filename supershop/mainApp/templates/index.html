@@ -55,18 +55,18 @@
                                     <a class="nav-link" href="/shop/All/All/All">Shop</a>
                                 </li>
 
-                                <li class="nav-item dropdown">
+                                <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_3"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         pages
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="{% url 'login' %}"> login</a>
+                                        <a class="dropdown-item" href="{% url 'login' %}"> Login</a>
                                         <a class="dropdown-item" href="{% url 'cart' %}">Cart</a>
                                         <a class="dropdown-item" href="{% url 'checkout' %}">Checkout</a>
                                         <a class="dropdown-item" href="{% url 'confirmation' %}">Confirmation</a>
                                     </div>
-                                </li>
+                                </li> -->
                                 
 
                                 
@@ -77,10 +77,13 @@
                         </div>
                         <div class="hearer_icon d-flex align-items-center">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            {% if request.user.is_authenticated %}
                             <a href="{% url 'cart' %}">
                                 <i class="flaticon-shopping-cart-black-shape"></i>
                             </a>
+                            {% endif %}
                             <ul>
+                                {% if request.user.is_authenticated %}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown_2"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -93,6 +96,11 @@
                                         <a class="dropdown-item" href="#">Logout</a>
                                     </div>
                                 </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="{% url 'login' %}">Login</a>
+                                </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </nav>

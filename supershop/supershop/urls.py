@@ -29,6 +29,7 @@ urlpatterns = [
     path('confirmation/', mainApp.confirmationPage,name="confirmation"),
     path('contact/', mainApp.contactPage,name="contact"),
     path('login/', mainApp.loginPage,name="login"),
+    path('signup/', mainApp.signupPage,name="signup"),
     path('shop/<str:mc>/<str:sc>/<str:br>/', mainApp.shopPage,name="shop"),
     path('single-product/<int:id>/', mainApp.singleProductPage,name="single-product"),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
